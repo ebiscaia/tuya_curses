@@ -4,27 +4,10 @@ import tuya_scripts
 from curses.textpad import rectangle
 
 
-# def mainWindow(stdscr):
-#     # Initialise color attributes
-#     curses.init_pair(1, curses.COLOR_RED, curses.COLOR_BLACK)
-#
-#     # Define color constants
-#     BLUE_AND_BLACK = curses.color_pair(1)
-#
-#     # Define variables
-#     width = 40
-#     height = 20
-#     title = " Kogan Air Conditioner "
-#     # Add static items of the window
-#     stdscr.attron(BLUE_AND_BLACK)
-#     rectangle(stdscr, 0, 0, height, width)
-#     stdscr.addstr(0, (width - len(title)) // 2, title)
-#     stdscr.attroff(BLUE_AND_BLACK)
-#
-#     # Print other screen elements
-#     subtitle = ["Room", "Temperature"]
-#     for index, word in enumerate(subtitle):
-#         stdscr.addstr(3 + index, (width - len(word)) // 2, word)
+def mainWindow(stdscr):
+    # Initialise color attributes
+    curses.init_pair(1, curses.COLOR_WHITE, curses.COLOR_BLACK)
+    curses.init_pair(2, curses.COLOR_GREEN, curses.COLOR_BLACK)
 
 
 def main(stdscr):
