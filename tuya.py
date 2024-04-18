@@ -36,9 +36,9 @@ def main(stdscr):
     # Start connection with the air conditioner
     openapi, BASE_URL = tuya_scripts.connectTuya()
     # Get the initial values from the air conditioner
-    curTempUnit = tuya_scripts.getTempUnit(openapi, BASE_URL).capitalize()
     curTempString = f"{curTemperature}º{curTempUnit}"
     curPowerState = tuya_scripts.getStatus(openapi, BASE_URL, "Power")
+    curTempUnit = tuya_scripts.getStatus(openapi, BASE_URL, "temp_c_f_set")
     curRoomTemp = tuya_scripts.getStatus(
         openapi, BASE_URL, "temp_current" if curTempUnit == "c" else "temp_current_f"
     )
