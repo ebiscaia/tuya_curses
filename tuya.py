@@ -37,10 +37,19 @@ def main(stdscr):
     openapi, BASE_URL = tuya_scripts.connectTuya()
     # Get the initial values from the air conditioner
     curPowerState = tuya_scripts.getStatus(openapi, BASE_URL, "Power")
+    curMode = tuya_scripts.getStatus(openapi, BASE_URL, "mode")
+    curFanMode = tuya_scripts.getStatus(openapi, BASE_URL, "windspeed")
+    curOscilationState = tuya_scripts.getStatus(openapi, BASE_URL, "windshake")
+    curSleepState = tuya_scripts.getStatus(openapi, BASE_URL, "Sleeping_mode")
+
     curTempUnit = tuya_scripts.getStatus(openapi, BASE_URL, "temp_c_f_set")
     curRoomTemp = tuya_scripts.getStatus(
         openapi, BASE_URL, "temp_current" if curTempUnit == "c" else "temp_current_f"
     )
+    curTempSet = tuya_scripts.getStatus(
+        openapi, BASE_URL, "temp_set" if curTempUnit == "c" else "temp_set_f"
+    )
+
     curTempString = f"{curRoomTemp}º{curTempUnit.capitalize()}"
 
     stdscr.addstr(5, (40 - len(curTempString)) // 2, "On" if curPowerState else "Off")
