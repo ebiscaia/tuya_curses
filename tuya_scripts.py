@@ -59,6 +59,16 @@ def setTempC(tempC):
     return {"commands": [{"code": "temp_set", "value": tempC}]}
 
 
+def getStatus(openapi, BASE_URL, statusItem):
+    response = openapi.get(f"{BASE_URL}/status")
+
+    # Filter the response to obtain the current temp value
+    for item in response.get("result", []):
+        if item.get("code") == statusItem:
+            statusValue = item.get("value")
+    return statusValue
+
+
 def getPowerState(openapi, BASE_URL):
     response = openapi.get(f"{BASE_URL}/status")
 
