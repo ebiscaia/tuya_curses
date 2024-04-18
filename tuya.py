@@ -32,6 +32,20 @@ def airConStatus():
     openapi, BASE_URL = tuya_scripts.connectTuya()
 
 
+def main(stdscr):
+    # Start connection with the air conditioner
+    openapi, BASE_URL = tuya_scripts.connectTuya()
+    # Get the initial values from the air conditioner
+    curPowerState = tuya_scripts.getPowerState(openapi, BASE_URL)
+    curTemperature = tuya_scripts.getCurrentTemp(openapi, BASE_URL)
+    curTempUnit = tuya_scripts.getTempUnit(openapi, BASE_URL).capitalize()
+    curTempString = f"{curTemperature}º{curTempUnit}"
+
+    stdscr.addstr(5, (40 - len(curTempString)) // 2, "On" if curPowerState else "Off")
+    # stdscr.addstr(5, (40 - len(curTempString)) // 2, curTempString)
+
+    stdscr.getkey()
+
 
 # if __name__ == "__main__":
 curses.wrapper(main)
