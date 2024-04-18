@@ -35,6 +35,7 @@ def airConStatus():
 def main(stdscr):
     # Start connection with the air conditioner
     openapi, BASE_URL = tuya_scripts.connectTuya()
+
     # Get the initial values from the air conditioner
     curPowerState = tuya_scripts.getStatus(openapi, BASE_URL, "Power")
     curMode = tuya_scripts.getStatus(openapi, BASE_URL, "mode")
@@ -42,6 +43,8 @@ def main(stdscr):
     curOscilationState = tuya_scripts.getStatus(openapi, BASE_URL, "windshake")
     curSleepState = tuya_scripts.getStatus(openapi, BASE_URL, "Sleeping_mode")
 
+    # Get unit in use and get values of variables that depende on the
+    # temperature unit
     curTempUnit = tuya_scripts.getStatus(openapi, BASE_URL, "temp_c_f_set")
     curRoomTemp = tuya_scripts.getStatus(
         openapi, BASE_URL, "temp_current" if curTempUnit == "c" else "temp_current_f"
