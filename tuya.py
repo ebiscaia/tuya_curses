@@ -27,12 +27,7 @@ def mainWindow(stdscr):
     for index, word in enumerate(subtitle):
         stdscr.addstr(3 + index, (width - len(word)) // 2, word)
 
-    win = curses.newwin(10, 38, 15, 1)
-    win.addstr(0, 0, "This is a test")
-    rectangle(win, 2, 2, 4, 30)
-    win.refresh()
 
-    stdscr.refresh()
 
     time.sleep(1)
     print("Hi")
