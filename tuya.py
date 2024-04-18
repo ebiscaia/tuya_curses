@@ -28,6 +28,8 @@ def mainWindow(stdscr):
         stdscr.addstr(3 + index, (width - len(word)) // 2, word)
 
 
+def airConStatus():
+    openapi, BASE_URL = tuya_scripts.connectTuya()
 
     time.sleep(1)
     print("Hi")
