@@ -41,6 +41,11 @@ def mainWindow(stdscr, status):
     roomTemp = f"{status[7]}ºC" if status[5] == 1 else f"{status[9]}ºF"
     setTemp = f"{status[6]}ºC" if status[5] == 1 else f"{status[8]}ºF"
 
+    finalStatus = status.copy()
+    for i in range(5):
+        finalStatus.pop()
+
+    finalStatus.insert(1, setTemp)
     for index in range(len(titles)):
         stdscr.addstr(3 + index, 3, titles[index])
         stdscr.addstr(3 + index, width - 4 - len(mockData[index]), mockData[index])
