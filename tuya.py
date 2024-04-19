@@ -61,6 +61,10 @@ def main(stdscr):
     ]
 
     curTempString = f"{curRoomTemp}ºC" if curTempUnit == 1 else f"{curRoomTemp}ºF"
+    statusVal = []
+    for param in statusPar:
+        value = tuya_scripts.getStatus(openapi, BASE_URL, param)
+        statusVal.append(value)
 
     stdscr.addstr(5, (40 - len(curTempString)) // 2, "On" if curPowerState else "Off")
     # stdscr.addstr(5, (40 - len(curTempString)) // 2, curTempString)
