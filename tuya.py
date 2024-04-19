@@ -45,11 +45,6 @@ def mainWindow(stdscr, status):
         finalStatus.pop()
 
     finalStatus.insert(1, setTemp)
-    for index in range(len(titles)):
-        color = WHITE_AND_BLACK
-        if index == activeLine:
-            color = YELLOW_AND_BLACK
-        stdscr.addstr(3 + index, 3, titles[index], color)
 
     # Define cicle to update screen contents and capture keystrokes
     while True:
@@ -62,15 +57,23 @@ def mainWindow(stdscr, status):
         if key == chr(27):
             break
 
+        for index in range(len(titles)):
+            color = WHITE_AND_BLACK
+            if index == activeLine:
+                color = YELLOW_AND_BLACK
+            stdscr.addstr(3 + index, 3, titles[index], color)
+            stdscr.addstr(
+                3 + index,
+                width - 4 - len(str(finalStatus[index])),
+                (
+                    str(finalStatus[index]).capitalize()
+                    if re.search("^[a-zA-Z]", str(finalStatus[index]))
+                    else str(finalStatus[index])
+                ),
+                color,
+            )
+
         stdscr.addstr(
-            3 + index,
-            width - 4 - len(str(finalStatus[index])),
-            (
-                str(finalStatus[index]).capitalize()
-                if re.search("^[a-zA-Z]", str(finalStatus[index]))
-                else str(finalStatus[index])
-            ),
-            color,
         )
 
     # Statusbar
