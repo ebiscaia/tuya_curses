@@ -22,10 +22,20 @@ def mainWindow(stdscr):
     stdscr.addstr(0, (width - len(title)) // 2, title)
     stdscr.attroff(GREEN_AND_BLACK)
 
-    # Print other screen elements
-    subtitle = ["Room", "Temperature"]
-    for index, word in enumerate(subtitle):
-        stdscr.addstr(3 + index, (width - len(word)) // 2, word)
+    # Print the section titles:
+    titles = [
+        "Power:",
+        "Temperature:",
+        "Mode",
+        "Fan Speed:",
+        "Oscilation:",
+        "Sleep Mode:",
+    ]
+    mockData = ["On", "13C", "Cool", "Low", "Off", "On"]
+    for index in range(len(titles)):
+        stdscr.addstr(3 + index, 3, titles[index])
+        stdscr.addstr(3 + index, width - 4 - len(mockData[index]), mockData[index])
+
 
 
 def main(stdscr):
