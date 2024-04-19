@@ -47,6 +47,18 @@ def main(stdscr):
     openapi, BASE_URL = tuya_scripts.connectTuya()
 
     # Get the initial values from the air conditioner
+    statusPar = [
+        "Power",
+        "mode",
+        "windspeed",
+        "windshake",
+        "Sleeping_mode",
+        "funcTag",
+        "temp_set",
+        "temp_current",
+        "temp_set_f",
+        "temp_current_f",
+    ]
 
     curTempString = f"{curRoomTemp}ºC" if curTempUnit == 1 else f"{curRoomTemp}ºF"
 
