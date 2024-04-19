@@ -35,7 +35,6 @@ def mainWindow(stdscr, status):
         "Oscilation:",
         "Sleep Mode:",
     ]
-    mockData = ["On", "13C", "Cool", "Low", "Off", "On"]
 
     # Rearrange status list to match the titles
     roomTemp = f"{status[7]}ºC" if status[5] == 1 else f"{status[9]}ºF"
