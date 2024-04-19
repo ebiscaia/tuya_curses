@@ -1,5 +1,4 @@
 import curses
-import time
 import tuya_scripts
 from curses.textpad import rectangle
 
