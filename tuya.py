@@ -107,7 +107,6 @@ def main(stdscr):
     # stdscr.addstr(5, (40 - len(curTempString)) // 2, curTempString)
 
     mainWindow(stdscr, statusVal)
-    stdscr.getkey()
 
 
 # if __name__ == "__main__":
