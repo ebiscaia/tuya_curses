@@ -28,10 +28,6 @@ def mainWindow(stdscr):
         stdscr.addstr(3 + index, (width - len(word)) // 2, word)
 
 
-def airConStatus():
-    openapi, BASE_URL = tuya_scripts.connectTuya()
-
-
 def main(stdscr):
     # Start connection with the air conditioner
     openapi, BASE_URL = tuya_scripts.connectTuya()
