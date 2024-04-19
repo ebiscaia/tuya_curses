@@ -46,8 +46,16 @@ def mainWindow(stdscr, status):
 
     finalStatus.insert(1, setTemp)
     for index in range(len(titles)):
-        stdscr.addstr(3 + index, 3, titles[index])
-        stdscr.addstr(3 + index, width - 4 - len(mockData[index]), mockData[index])
+        color = WHITE_AND_BLACK
+        if index == activeLine:
+            color = YELLOW_AND_BLACK
+        stdscr.addstr(3 + index, 3, titles[index], color)
+        stdscr.addstr(
+            3 + index,
+            width - 4 - len(str(finalStatus[index])),
+            str(finalStatus[index]).capitalize(),
+            color,
+        )
 
     # Statusbar
     stdscr.addstr(height - 3, 2, " " * (width - 6), curses.A_REVERSE)
