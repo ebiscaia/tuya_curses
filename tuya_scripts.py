@@ -94,7 +94,7 @@ def getTempUnit(openapi, BASE_URL):
 
     # Filter the response to obtain the current temp value
     for item in response.get("result", []):
-        if item.get("code") == "temp_c_f_set":
+        if item.get("code") == "funcTag":
             temp_value = item.get("value")
     return temp_value
 
@@ -144,8 +144,8 @@ def main():
                 print(f"Room temperature: {temp}")
                 break
             if inputNumber == 4:
-                curTemp = getTempUnit(openapi, BASE_URL)
-                if curTemp == "c":
+                curTemp = getStatus(openapi, BASE_URL, "funcTag")
+                if curTemp == 1:
                     curTemp = "Celsius"
                 else:
                     curTemp = "Fahrenheit"
