@@ -36,6 +36,11 @@ def mainWindow(stdscr, status):
         "Sleep Mode:",
     ]
     mockData = ["On", "13C", "Cool", "Low", "Off", "On"]
+
+    # Rearrange status list to match the titles
+    roomTemp = f"{status[7]}ºC" if status[5] == 1 else f"{status[9]}ºF"
+    setTemp = f"{status[6]}ºC" if status[5] == 1 else f"{status[8]}ºF"
+
     for index in range(len(titles)):
         stdscr.addstr(3 + index, 3, titles[index])
         stdscr.addstr(3 + index, width - 4 - len(mockData[index]), mockData[index])
