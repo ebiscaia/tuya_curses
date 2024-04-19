@@ -18,7 +18,7 @@ def mainWindow(stdscr):
     title = " Kogan Air Conditioner "
     # Add static items of the window
     stdscr.attron(GREEN_AND_BLACK)
-    rectangle(stdscr, 0, 0, height, width)
+    rectangle(stdscr, 0, 0, height - 2, width - 2)
     stdscr.addstr(0, (width - len(title)) // 2, title)
     stdscr.attroff(GREEN_AND_BLACK)
 
