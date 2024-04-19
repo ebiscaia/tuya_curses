@@ -90,6 +90,7 @@ def mainWindow(stdscr, status):
             YELLOW_AND_BLACK | curses.A_REVERSE | curses.A_BOLD,
         )
 
+        stdscr.refresh()
 
 
 def main(stdscr):
