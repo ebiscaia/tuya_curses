@@ -78,6 +78,9 @@ def mainWindow(stdscr, status):
 
 
 def main(stdscr):
+    # Define some curses properties
+    stdscr.nodelay(True)
+
     # Start connection with the air conditioner
     openapi, BASE_URL = tuya_scripts.connectTuya()
 
