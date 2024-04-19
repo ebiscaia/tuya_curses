@@ -45,15 +45,12 @@ def main(stdscr):
 
     # Get unit in use and get values of variables that depende on the
     # temperature unit
-    curTempUnit = tuya_scripts.getStatus(openapi, BASE_URL, "temp_c_f_set")
+    curTempUnit = tuya_scripts.getStatus(openapi, BASE_URL, "funcTag")
     curRoomTemp = tuya_scripts.getStatus(
-        openapi, BASE_URL, "temp_current" if curTempUnit == "c" else "temp_current_f"
-    )
-    curTempSet = tuya_scripts.getStatus(
-        openapi, BASE_URL, "temp_set" if curTempUnit == "c" else "temp_set_f"
+        openapi, BASE_URL, "temp_current" if curTempUnit == 1 else "temp_current_f"
     )
 
-    curTempString = f"{curRoomTemp}º{curTempUnit.capitalize()}"
+    curTempString = f"{curRoomTemp}ºC" if curTempUnit == 1 else f"{curRoomTemp}ºF"
 
     stdscr.addstr(5, (40 - len(curTempString)) // 2, "On" if curPowerState else "Off")
     # stdscr.addstr(5, (40 - len(curTempString)) // 2, curTempString)
