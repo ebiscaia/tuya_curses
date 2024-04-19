@@ -36,6 +36,10 @@ def mainWindow(stdscr):
         stdscr.addstr(3 + index, 3, titles[index])
         stdscr.addstr(3 + index, width - 4 - len(mockData[index]), mockData[index])
 
+    # Statusbar
+    stdscr.addstr(height - 3, 2, " " * (width - 6), curses.A_REVERSE)
+    stdscr.addstr(height - 3, 2, "Room Temperature: ", curses.A_REVERSE)
+    stdscr.addstr(height - 3, width - 4 - len("15C"), "15C", curses.A_REVERSE)
 
 
 def main(stdscr):
