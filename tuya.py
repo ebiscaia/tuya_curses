@@ -4,7 +4,7 @@ import tuya_scripts
 from curses.textpad import rectangle
 
 
-def mainWindow(stdscr):
+def mainWindow(stdscr, status):
     # Initialise color attributes
     curses.init_pair(1, curses.COLOR_WHITE, curses.COLOR_BLACK)
     curses.init_pair(2, curses.COLOR_GREEN, curses.COLOR_BLACK)
