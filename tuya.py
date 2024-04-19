@@ -58,6 +58,10 @@ def mainWindow(stdscr, status):
         except:
             key = None
 
+        # Leave the program
+        if key == chr(27):
+            break
+
         stdscr.addstr(
             3 + index,
             width - 4 - len(str(finalStatus[index])),
