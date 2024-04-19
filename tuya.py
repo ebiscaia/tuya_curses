@@ -58,9 +58,19 @@ def mainWindow(stdscr, status):
         )
 
     # Statusbar
-    stdscr.addstr(height - 3, 2, " " * (width - 6), curses.A_REVERSE)
-    stdscr.addstr(height - 3, 2, "Room Temperature: ", curses.A_REVERSE)
-    stdscr.addstr(height - 3, width - 4 - len("15C"), "15C", curses.A_REVERSE)
+    stdscr.addstr(height - 3, 2, " " * (width - 6), YELLOW_AND_BLACK | curses.A_REVERSE)
+    stdscr.addstr(
+        height - 3,
+        2,
+        "Room Temperature: ",
+        YELLOW_AND_BLACK | curses.A_REVERSE | curses.A_BOLD,
+    )
+    stdscr.addstr(
+        height - 3,
+        width - 4 - len(roomTemp),
+        roomTemp,
+        YELLOW_AND_BLACK | curses.A_REVERSE | curses.A_BOLD,
+    )
 
 
 def main(stdscr):
