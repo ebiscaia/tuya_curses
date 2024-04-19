@@ -50,6 +50,14 @@ def mainWindow(stdscr, status):
         if index == activeLine:
             color = YELLOW_AND_BLACK
         stdscr.addstr(3 + index, 3, titles[index], color)
+
+    # Define cicle to update screen contents and capture keystrokes
+    while True:
+        try:
+            key = stdscr.getkey()
+        except:
+            key = None
+
         stdscr.addstr(
             3 + index,
             width - 4 - len(str(finalStatus[index])),
