@@ -73,23 +73,23 @@ def mainWindow(stdscr, status):
                 color,
             )
 
+        # Statusbar
         stdscr.addstr(
+            height - 3, 2, " " * (width - 6), YELLOW_AND_BLACK | curses.A_REVERSE
+        )
+        stdscr.addstr(
+            height - 3,
+            2,
+            "Room Temperature: ",
+            YELLOW_AND_BLACK | curses.A_REVERSE | curses.A_BOLD,
+        )
+        stdscr.addstr(
+            height - 3,
+            width - 4 - len(roomTemp),
+            roomTemp,
+            YELLOW_AND_BLACK | curses.A_REVERSE | curses.A_BOLD,
         )
 
-    # Statusbar
-    stdscr.addstr(height - 3, 2, " " * (width - 6), YELLOW_AND_BLACK | curses.A_REVERSE)
-    stdscr.addstr(
-        height - 3,
-        2,
-        "Room Temperature: ",
-        YELLOW_AND_BLACK | curses.A_REVERSE | curses.A_BOLD,
-    )
-    stdscr.addstr(
-        height - 3,
-        width - 4 - len(roomTemp),
-        roomTemp,
-        YELLOW_AND_BLACK | curses.A_REVERSE | curses.A_BOLD,
-    )
 
 
 def main(stdscr):
