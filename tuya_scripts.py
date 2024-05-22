@@ -10,7 +10,6 @@ def importJson(file):
 
 def connectTuya():
     tuyaData = importJson("tuya.json")
-    print(tuyaData)
 
     ACCESS_ID = tuyaData["access_id"]
     ACCESS_KEY = tuyaData["access_key"]
