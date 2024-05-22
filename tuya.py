@@ -107,6 +107,9 @@ def main(stdscr):
     # Start connection with the air conditioner
     openapi, BASE_URL = tuya_scripts.connectTuya()
 
+    # Get all the status from the air conditioner
+    fullStatus = tuya_scripts.getFullStatus(openapi, BASE_URL)
+
     # Get the initial values from the air conditioner
     statusPar = [
         "Power",
