@@ -63,6 +63,11 @@ def getStatus(openapi, BASE_URL, statusItem):
 
     # Filter the response to obtain the current temp value
     for item in response.get("result", []):
+
+def getFullStatus(openapi, BASE_URL):
+    return openapi.get(f"{BASE_URL}/status")
+
+
         if item.get("code") == statusItem:
             statusValue = item.get("value")
     return statusValue
