@@ -71,7 +71,7 @@ def mainWindow(stdscr, status):
             stdscr.addstr(3 + index, 3, titles[index], color)
             stdscr.addstr(
                 3 + index,
-                width - 4 - len(str(finalStatus[index])),
+                width - 9,
                 (
                     str(finalStatus[index]).capitalize()
                     if re.search("^[a-zA-Z]", str(finalStatus[index]))
