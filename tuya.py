@@ -57,6 +57,11 @@ def mainWindow(stdscr, status):
         if key == chr(27):
             break
 
+        if key == "KEY_DOWN":
+            activeLine += 1
+        if key == "KEY_UP":
+            activeLine -= 1
+
         for index in range(len(titles)):
             color = WHITE_AND_BLACK
             if index == activeLine:
