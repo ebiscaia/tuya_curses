@@ -30,6 +30,7 @@ def mainWindow(stdscr, status):
     titles = [
         "Power:",
         "Temperature:",
+        "Temp. Unit:",
         "Mode:",
         "Fan Speed:",
         "Oscilation:",
@@ -39,12 +40,14 @@ def mainWindow(stdscr, status):
     # Rearrange status list to match the titles
     roomTemp = f"{status[7]}ºC" if status[5] == 1 else f"{status[9]}ºF"
     setTemp = f"{status[6]}ºC" if status[5] == 1 else f"{status[8]}ºF"
+    tempUnit = "Celsius" if status[5] == 1 else "F/heit"
 
     finalStatus = status.copy()
     for i in range(5):
         finalStatus.pop()
 
     finalStatus.insert(1, setTemp)
+    finalStatus.insert(2, tempUnit)
 
     # Define cicle to update screen contents and capture keystrokes
     while True:
