@@ -18,7 +18,7 @@ def mainWindow(stdscr, status):
     # Define variables
     height, width = stdscr.getmaxyx()
     title = " Kogan Air Conditioner "
-    activeLine = 1
+    activeLine = 0
 
     # Add static items of the window
     stdscr.attron(GREEN_AND_BLACK)
