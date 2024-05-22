@@ -30,7 +30,7 @@ def mainWindow(stdscr, status):
     titles = [
         "Power:",
         "Temperature:",
-        "Mode",
+        "Mode:",
         "Fan Speed:",
         "Oscilation:",
         "Sleep Mode:",
