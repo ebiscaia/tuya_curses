@@ -62,6 +62,8 @@ def mainWindow(stdscr, status):
         if key == "KEY_UP":
             activeLine -= 1
 
+        activeLine = min(max(0, activeLine), len(titles) - 1)
+
         for index in range(len(titles)):
             color = WHITE_AND_BLACK
             if index == activeLine:
