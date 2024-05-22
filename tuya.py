@@ -126,7 +126,7 @@ def main(stdscr):
 
     statusVal = []
     for param in statusPar:
-        value = tuya_scripts.getStatus(openapi, BASE_URL, param)
+        value = tuya_scripts.getStatus(fullStatus, param)
         statusVal.append(value)
 
     # stdscr.addstr(5, (40 - len(curTempString)) // 2, "On" if curPowerState else "Off")
