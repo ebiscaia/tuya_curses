@@ -1,7 +1,6 @@
 import curses
 import re
 import tuya_scripts
-from curses.textpad import rectangle
 
 
 def mainWindow(stdscr, status):
