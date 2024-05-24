@@ -105,6 +105,7 @@ def mainWindow(stdscr, status):
         # Control the variable so that highlight will not disappear
         activeLine = min(max(0, activeLine), len(titles) - 1)
 
+        if key == chr(10):
             color = BLACK_AND_RED
             heightw, widthw = 10, 40
             start_y, start_x = (curses.LINES - heightw) // 2, (
