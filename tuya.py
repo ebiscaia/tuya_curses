@@ -102,6 +102,7 @@ def mainWindow(stdscr, status):
         )
 
         stdscr.refresh()
+        curses.napms(100)
 
 
 def main(stdscr):
