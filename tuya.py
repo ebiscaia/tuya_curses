@@ -49,19 +49,6 @@ def mainWindow(stdscr, status):
         except:
             key = None
 
-        # Leave the program
-        if key == chr(27):
-            break
-
-        if key == "KEY_DOWN":
-            activeLine += 1
-        if key == "KEY_UP":
-            activeLine -= 1
-
-        activeLine = min(max(0, activeLine), len(titles) - 1)
-
-        stdscr.clear()
-
         # Add static items of the window
         stdscr.attron(GREEN_AND_BLACK)
         stdscr.border()
@@ -103,6 +90,17 @@ def mainWindow(stdscr, status):
 
         stdscr.refresh()
         curses.napms(100)
+
+        # Leave the program
+        if key == chr(27):
+            break
+
+        if key == "KEY_DOWN":
+            activeLine += 1
+        if key == "KEY_UP":
+            activeLine -= 1
+
+        activeLine = min(max(0, activeLine), len(titles) - 1)
 
 
 def main(stdscr):
