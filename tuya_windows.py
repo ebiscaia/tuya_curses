@@ -1,4 +1,5 @@
 import curses
+import tuya_scripts
 
 
 def windowTest(color):
