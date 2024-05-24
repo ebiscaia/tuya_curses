@@ -91,15 +91,18 @@ def mainWindow(stdscr, status):
         stdscr.refresh()
         curses.napms(100)
 
+        # Controls of the main Window
         # Leave the program
         if key == chr(27):
             break
 
+        # Scroll through the options
         if key == "KEY_DOWN":
             activeLine += 1
         if key == "KEY_UP":
             activeLine -= 1
 
+        # Control the variable so that highlight will not disappear
         activeLine = min(max(0, activeLine), len(titles) - 1)
 
 
