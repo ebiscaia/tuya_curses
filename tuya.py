@@ -4,7 +4,6 @@ import tuya_scripts
 
 
 def windowTest(color):
-    color = BLACK_AND_RED
     heightw, widthw = 10, 40
     start_y, start_x = (curses.LINES - heightw) // 2, (curses.COLS - widthw) // 2
     win = curses.newwin(heightw, widthw, start_y, start_x)
