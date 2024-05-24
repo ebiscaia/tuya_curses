@@ -8,11 +8,13 @@ def mainWindow(stdscr, status):
     curses.init_pair(1, curses.COLOR_WHITE, curses.COLOR_BLACK)
     curses.init_pair(2, curses.COLOR_GREEN, curses.COLOR_BLACK)
     curses.init_pair(3, curses.COLOR_YELLOW, curses.COLOR_BLACK)
+    curses.init_pair(4, curses.COLOR_BLACK, curses.COLOR_RED)
 
     # Define color constants
     WHITE_AND_BLACK = curses.color_pair(1)
     GREEN_AND_BLACK = curses.color_pair(2)
     YELLOW_AND_BLACK = curses.color_pair(3)
+    BLACK_AND_RED = curses.color_pair(4)
 
     # Define variables
     height, width = stdscr.getmaxyx()
