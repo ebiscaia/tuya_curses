@@ -109,7 +109,7 @@ def mainWindow(stdscr, status):
         activeLine = min(max(0, activeLine), len(titles) - 1)
 
         if key == chr(10):
-            windowTest(BLACK_AND_RED)
+            tuya_windows.windowTest(BLACK_AND_RED)
 
 
 def main(stdscr):
