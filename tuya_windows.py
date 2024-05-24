@@ -42,6 +42,7 @@ def switchOnOffWindow(color):
 
     # Title and message in the new window
     win.addstr(0, (widthw - len(winTitle)) // 2, winTitle, color | curses.A_BOLD)
+    # Add window loop
 
     for index, state in enumerate(statesList):
         spaceCount = widthw - (len(state) + 4)
