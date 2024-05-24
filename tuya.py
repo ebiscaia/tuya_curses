@@ -1,6 +1,7 @@
 import curses
 import re
 import tuya_scripts
+import tuya_windows
 
 
 def mainWindow(stdscr, status):
