@@ -19,12 +19,6 @@ def mainWindow(stdscr, status):
     title = " Kogan Air Conditioner "
     activeLine = 0
 
-    # Add static items of the window
-    stdscr.attron(GREEN_AND_BLACK)
-    stdscr.border()
-    stdscr.addstr(0, (width - len(title)) // 2, title)
-    stdscr.attroff(GREEN_AND_BLACK)
-
     # Print the section titles:
     titles = [
         "Power:",
@@ -65,6 +59,12 @@ def mainWindow(stdscr, status):
             activeLine -= 1
 
         activeLine = min(max(0, activeLine), len(titles) - 1)
+
+        # Add static items of the window
+        stdscr.attron(GREEN_AND_BLACK)
+        stdscr.border()
+        stdscr.addstr(0, (width - len(title)) // 2, title)
+        stdscr.attroff(GREEN_AND_BLACK)
 
         for index in range(len(titles)):
             color = WHITE_AND_BLACK
