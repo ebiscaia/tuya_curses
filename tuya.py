@@ -60,6 +60,8 @@ def mainWindow(stdscr, status):
 
         activeLine = min(max(0, activeLine), len(titles) - 1)
 
+        stdscr.clear()
+
         # Add static items of the window
         stdscr.attron(GREEN_AND_BLACK)
         stdscr.border()
