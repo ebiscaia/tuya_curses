@@ -43,6 +43,10 @@ def switchOnOffWindow(color):
     # Add window loop
 
     while True:
+        try:
+            key = win.getkey()
+        except:
+            key = None
 
         # Title and message in the new window
         win.addstr(0, (widthw - len(winTitle)) // 2, winTitle, color | curses.A_BOLD)
