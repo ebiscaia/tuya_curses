@@ -40,24 +40,31 @@ def switchOnOffWindow(color):
     win.border()
     win.nodelay(True)
 
-    # Title and message in the new window
-    win.addstr(0, (widthw - len(winTitle)) // 2, winTitle, color | curses.A_BOLD)
     # Add window loop
 
-    for index, state in enumerate(statesList):
-        spaceCount = widthw - (len(state) + 4)
-        win.addstr(2 + index, 2, state + spaceCount * " ", color)
-        if index == activeLine:
-            win.addstr(2 + index, 2, state + spaceCount * " ", color | curses.A_REVERSE)
+    while True:
 
-    win.addstr(
-        heightw - 1,
-        2,
-        " Press any key to leave the window ",
-        color,
-    )
-    win.refresh()
+        # Title and message in the new window
+        win.addstr(0, (widthw - len(winTitle)) // 2, winTitle, color | curses.A_BOLD)
 
-    # Wait for another key press to close the window
-    win.getch()
-    del win
+        for index, state in enumerate(statesList):
+            spaceCount = widthw - (len(state) + 4)
+            win.addstr(2 + index, 2, state + spaceCount * " ", color)
+            if index == activeLine:
+                win.addstr(
+                    2 + index, 2, state + spaceCount * " ", color | curses.A_REVERSE
+                )
+
+        win.addstr(
+            heightw - 1,
+            2,
+            " Press any key to leave the window ",
+            color,
+        )
+        win.refresh()
+        curses.napms(100)
+
+        # Wait for another key press to close the window
+        if key is not None:
+            del win
+            break
