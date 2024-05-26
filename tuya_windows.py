@@ -39,6 +39,7 @@ def switchOnOffWindow(openapi, BASE_URL, color):
     win.bkgd(" ", color)
     win.border()
     win.nodelay(True)
+    win.keypad(True)
 
     # Add window loop
 
@@ -72,3 +73,12 @@ def switchOnOffWindow(openapi, BASE_URL, color):
         if key is not None:
             del win
             break
+
+        # Scroll through the options
+        if key == "KEY_DOWN":
+            activeLine += 1
+        if key == "KEY_UP":
+            activeLine -= 1
+
+        # Control the variable so that highlight will not disappear
+        activeLine %= 2
