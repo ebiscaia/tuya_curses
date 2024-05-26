@@ -27,7 +27,7 @@ def windowTest(color):
     del win
 
 
-def switchOnOffWindow(color):
+def switchOnOffWindow(openapi, BASE_URL, color):
     heightw, widthw = 10, 40
     start_y, start_x = (curses.LINES - heightw) // 2, (curses.COLS - widthw) // 2
     winTitle = " Turn On/Off Air Conditioner "
