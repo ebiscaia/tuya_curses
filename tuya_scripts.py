@@ -107,6 +107,10 @@ def getTempUnit(openapi, BASE_URL):
     return temp_value
 
 
+def setFanSpeed(openapi, BASE_URL, state):
+    return {"commands": [{"code": "windspeed", "value": state}]}
+
+
 def applyCommand(openapi, BASE_URL, command):
     openapi.post(f"{BASE_URL}/commands", command)
 
