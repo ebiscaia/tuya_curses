@@ -36,8 +36,6 @@ def switchOnOffWindow(openapi, BASE_URL, color):
     activeLine = 0
 
     win = curses.newwin(heightw, widthw, start_y, start_x)
-    win.bkgd(" ", color)
-    win.border()
     win.nodelay(True)
     win.keypad(True)
 
@@ -48,6 +46,11 @@ def switchOnOffWindow(openapi, BASE_URL, color):
             key = win.getkey()
         except:
             key = None
+
+        # Start Window
+        win.clear()
+        win.bkgd(" ", color)
+        win.border()
 
         # Title and message in the new window
         win.addstr(0, (widthw - len(winTitle)) // 2, winTitle, color | curses.A_BOLD)
