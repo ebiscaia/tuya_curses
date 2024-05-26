@@ -4,7 +4,7 @@ import tuya_scripts
 import tuya_windows
 
 
-def mainWindow(stdscr, status):
+def mainWindow(openapi, BASE_URL, stdscr, status):
     # Initialise color attributes
     curses.init_pair(1, curses.COLOR_WHITE, curses.COLOR_BLACK)
     curses.init_pair(2, curses.COLOR_GREEN, curses.COLOR_BLACK)
@@ -110,7 +110,7 @@ def mainWindow(stdscr, status):
 
         if key == chr(10):
             if activeLine == 0:
-                tuya_windows.switchOnOffWindow(BLACK_AND_RED)
+                tuya_windows.switchOnOffWindow(openapi, BASE_URL, BLACK_AND_RED)
             else:
                 tuya_windows.windowTest(BLACK_AND_RED)
 
@@ -147,7 +147,7 @@ def main(stdscr):
     # stdscr.addstr(5, (40 - len(curTempString)) // 2, "On" if curPowerState else "Off")
     # stdscr.addstr(5, (40 - len(curTempString)) // 2, curTempString)
 
-    mainWindow(stdscr, statusVal)
+    mainWindow(openapi, BASE_URL, stdscr, statusVal)
 
 
 # if __name__ == "__main__":
