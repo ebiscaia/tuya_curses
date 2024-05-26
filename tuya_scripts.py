@@ -107,6 +107,10 @@ def getTempUnit(openapi, BASE_URL):
     return temp_value
 
 
+def applyCommand(openapi, BASE_URL, command):
+    openapi.post(f"{BASE_URL}/commands", command)
+
+
 def main():
     openapi, BASE_URL = connectTuya()
     while True:
