@@ -51,6 +51,13 @@ def switchOnOff(openapi, BASE_URL):
     return {"commands": [{"code": "Power", "value": not power_state}]}
 
 
+def switchOnOffSelector(openapi, BASE_URL, state):
+    openapi = openapi
+    BASE_URL = BASE_URL
+
+    return {"commands": [{"code": "Power", "value": state}]}
+
+
 def setTempC(tempC):
     return {"commands": [{"code": "temp_set", "value": tempC}]}
 
