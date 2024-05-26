@@ -70,7 +70,7 @@ def switchOnOffWindow(openapi, BASE_URL, color):
         curses.napms(100)
 
         # Wait for another key press to close the window
-        if key is not None:
+        if key == chr(27):
             del win
             break
 
