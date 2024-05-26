@@ -128,6 +128,7 @@ def main():
             input("Which command would like to use to control the air conditioning: ")
         )
         if inputNumber not in range(5):
+        if inputNumber not in range(7):
             print("Please use one of the options shown\n")
             continue
         if inputNumber == 0:
