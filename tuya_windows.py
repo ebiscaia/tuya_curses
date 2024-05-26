@@ -72,6 +72,14 @@ def switchOnOffWindow(openapi, BASE_URL, color):
         win.refresh()
         curses.napms(100)
 
+        if key == chr(10):
+            selector = (activeLine + 1) % 2
+            command = tuya_scripts.switchOnOffSelector(
+                openapi, BASE_URL, bool(selector)
+            )
+            tuya_scripts.applyCommand(openapi, BASE_URL, command)
+            key = chr(27)
+
         # Wait for another key press to close the window
         if key == chr(27):
             del win
