@@ -166,7 +166,7 @@ def main():
             print("\n")
 
         if inputNumber in range(3):
-            openapi.post(f"{BASE_URL}/commands", commands)
+            applyCommand(openapi, BASE_URL, commands)
 
 
 if __name__ == "__main__":
