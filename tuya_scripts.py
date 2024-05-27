@@ -61,11 +61,16 @@ def setTempC(tempC):
     return {"commands": [{"code": "temp_set", "value": tempC}]}
 
 
-def setTempUnit(unit):
-    return {"commands": [{"code": "temp_c_f_set", "value": unit}]}
+def setTempUnit(openapi, BASE_URL, unit):
+    fullStatus = getFullStatus(openapi, BASE_URL)
+    tempC = getStatus(fullStatus, "temp_set")
+    tempF = getStatus(fullStatus, "temp_set_f")
 
-    # Filter the response to obtain the current temp value
-    for item in response.get("result", []):
+    if unit == 1:
+        return {"commands": [{"code": "temp_set", "value": tempC}]}
+    else:
+        return {"commands": [{"code": "temp_set_f", "value": tempF}]}
+
 
 def getFullStatus(openapi, BASE_URL):
     return openapi.get(f"{BASE_URL}/status")
