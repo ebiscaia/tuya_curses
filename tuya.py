@@ -116,6 +116,8 @@ def mainWindow(openapi, BASE_URL, stdscr, status):
                 tuya_windows.selectTempUnitWindow(openapi, BASE_URL, BLACK_AND_RED)
             elif activeLine == 4:
                 tuya_windows.selectFanSpeedWindow(openapi, BASE_URL, BLACK_AND_RED)
+            elif activeLine == 5:
+                tuya_windows.selectOscilationWindow(openapi, BASE_URL, BLACK_AND_RED)
             else:
                 tuya_windows.windowTest(BLACK_AND_RED)
 
