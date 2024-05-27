@@ -194,6 +194,23 @@ def main():
                     commands = setTempUnit(openapi, BASE_URL, tempUnitOption)
 
                 break
+            if inputNumber == 7:
+                titles = ["On", "Off"]
+                for index, text in enumerate(titles):
+                    print(f"{index+1} - {text}")
+
+                oscilationSelectionNumber = int(
+                    input("\nSelect option to set the oscilation mode: ")
+                )
+
+                if oscilationSelectionNumber not in range(1, len(titles) + 1):
+                    print("Please choose one of the option below")
+                    continue
+
+                oscilationSelection = titles[oscilationSelectionNumber - 1].lower()
+                commands = setOscilation(openapi, BASE_URL, oscilationSelection)
+                break
+            print("\n")
                 break
             print("\n")
 
