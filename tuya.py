@@ -33,6 +33,7 @@ def mainWindow(openapi, BASE_URL, stdscr, status):
         "Sleep Mode:",
     ]
 
+    # Set variables with user friendly values
     roomTemp = f"{status[7]}ºC" if status[5] == 1 else f"{status[9]}ºF"
     setTemp = f"{status[6]}ºC" if status[5] == 1 else f"{status[8]}ºF"
     tempUnit = "Celsius" if status[5] == 1 else "F/heit"
