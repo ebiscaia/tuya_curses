@@ -33,11 +33,11 @@ def mainWindow(openapi, BASE_URL, stdscr, status):
         "Sleep Mode:",
     ]
 
-    # Rearrange status list to match the titles
     roomTemp = f"{status[7]}ºC" if status[5] == 1 else f"{status[9]}ºF"
     setTemp = f"{status[6]}ºC" if status[5] == 1 else f"{status[8]}ºF"
     tempUnit = "Celsius" if status[5] == 1 else "F/heit"
 
+    # Rearrange status list to match the titles
     finalStatus = status.copy()
     for i in range(5):
         finalStatus.pop()
