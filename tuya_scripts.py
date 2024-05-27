@@ -132,6 +132,7 @@ def main():
         print("4 - Get the current temperature unit")
         print("5 - Set the temperature unit")
         print("6 - Select fan speed")
+        print("7 - Select oscilation mode")
         print("0 - Exit program")
         inputNumber = int(
             input("Which command would like to use to control the air conditioning: ")
