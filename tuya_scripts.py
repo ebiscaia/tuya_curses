@@ -45,7 +45,6 @@ def connectTuya():
 
 
 def switchOnOff(openapi, BASE_URL):
-    response = openapi.get(f"{BASE_URL}/status")
 
     power_state = getStatus(getFullStatus(openapi, BASE_URL), "Power")
     return {"commands": [{"code": "Power", "value": not power_state}]}
