@@ -126,6 +126,7 @@ def main():
         print("2 - Set the temperature")
         print("3 - Get the current temperature")
         print("4 - Get the current temperature unit")
+        print("5 - Set the temperature unit")
         print("6 - Select fan speed")
         print("0 - Exit program")
         inputNumber = int(
