@@ -216,6 +216,25 @@ def main():
                 commands = setOscilation(openapi, BASE_URL, oscilationSelection)
                 break
             print("\n")
+            if inputNumber == 8:
+                titles = ["Cool", "Dry", "Fan"]
+                for index, text in enumerate(titles):
+                    print(f"{index+1} - {text}")
+
+                modeNumber = int(input("\nSelect option to set the cooling mode: "))
+
+                if modeNumber not in range(1, len(titles) + 1):
+                    print("Please choose one of the option below")
+                    continue
+
+                modeSelection = titles[modeNumber - 1].lower()
+                if modeSelection == "cool":
+                    modeSelection = "cold"
+                if modeSelection == "dry":
+                    modeSelection = "wet"
+                if modeSelection == "fan":
+                    modeSelection = "wind"
+                commands = setMode(openapi, BASE_URL, modeSelection)
                 break
             print("\n")
 
