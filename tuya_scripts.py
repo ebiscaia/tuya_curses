@@ -119,6 +119,10 @@ def setOscilation(openapi, BASE_URL, state):
     return {"commands": [{"code": "windshake", "value": state}]}
 
 
+def setMode(openapi, BASE_URL, state):
+    return {"commands": [{"code": "mode", "value": state}]}
+
+
 def applyCommand(openapi, BASE_URL, command):
     openapi.post(f"{BASE_URL}/commands", command)
 
