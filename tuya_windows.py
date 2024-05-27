@@ -73,9 +73,8 @@ def switchOnOffWindow(openapi, BASE_URL, color):
         curses.napms(100)
 
         if key == chr(10):
-            selector = (activeLine + 1) % 2
             command = tuya_scripts.switchOnOffSelector(
-                openapi, BASE_URL, bool(selector)
+                openapi, BASE_URL, not bool(activeLine)
             )
             tuya_scripts.applyCommand(openapi, BASE_URL, command)
             key = chr(27)
