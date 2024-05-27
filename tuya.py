@@ -114,6 +114,8 @@ def mainWindow(openapi, BASE_URL, stdscr, status):
                 tuya_windows.switchOnOffWindow(openapi, BASE_URL, BLACK_AND_RED)
             elif activeLine == 2:
                 tuya_windows.selectTempUnitWindow(openapi, BASE_URL, BLACK_AND_RED)
+            elif activeLine == 3:
+                tuya_windows.selectModeWindow(openapi, BASE_URL, BLACK_AND_RED)
             elif activeLine == 4:
                 tuya_windows.selectFanSpeedWindow(openapi, BASE_URL, BLACK_AND_RED)
             elif activeLine == 5:
