@@ -173,6 +173,22 @@ def main():
                 else:
                     curTemp = "Fahrenheit"
                 print(f"Temperature Unit: {curTemp}")
+            if inputNumber == 5:
+                print("1 - Celsius")
+                print("2 - Fahrenheit")
+                print("0 - Return to previous menu")
+                tempUnitOption = int(
+                    input("\nSelect option to set the temperature unit: ")
+                )
+                if tempUnitOption not in range(3):
+                    print("Please choose one of the option below")
+                    continue
+                if tempUnitOption == 0:
+                    break
+                else:
+                    commands = setTempUnit(openapi, BASE_URL, tempUnitOption)
+
+                break
                 break
             print("\n")
 
