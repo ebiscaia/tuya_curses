@@ -162,22 +162,49 @@ def main():
                 commands = switchOnOff(openapi, BASE_URL)
                 break
             if inputNumber == 2:
-                tempNumber = int(
-                    input(
-                        "Select the air conditioning temperature in Celsius (16-31): "
+                fullStatus = getFullStatus(openapi, BASE_URL)
+                tempUnit = getStatus(fullStatus, "funcTag")
+                tempCRange = [16, 31]
+                tempFRange = [61, 88]
+                if tempUnit == 1:
+                    tempNumber = int(
+                        input(
+                            f"Select the air conditioning temperature in Celsius ({
+                                tempCRange[0]}-{tempCRange[1]}): "
+                        )
                     )
-                )
-                if tempNumber < 16:
-                    print(
-                        "Temperature below minimal limit of 16. Using 16 as desired temperature"
+                    if tempNumber < tempCRange[0]:
+                        print(
+                            f"Temperature below minimal limit of {tempCRange[0]}. Using {
+                                tempCRange[0]} as desired temperature"
+                        )
+                        tempNumber = tempCRange[0]
+                    if tempNumber > tempCRange[1]:
+                        print(
+                            f"Temperature above above limit of {tempCRange[1]}. Using {
+                                tempCRange[1]} as desired temperature"
+                        )
+                        tempNumber = tempCRange[1]
+                else:
+                    tempNumber = int(
+                        input(
+                            f"Select the air conditioning temperature in Fahrenheit ({
+                                tempFRange[0]}-{tempFRange[1]}): "
+                        )
                     )
-                    tempNumber = 16
-                if tempNumber > 31:
-                    print(
-                        "Temperature above above limit of 31. Using 31 as desired temperature"
-                    )
-                    tempNumber = 31
-                commands = setTempC(tempNumber)
+                    if tempNumber < tempFRange[0]:
+                        print(
+                            f"Temperature below minimal limit of {tempFRange[0]}. Using {
+                                tempFRange[0]} as desired temperature"
+                        )
+                        tempNumber = tempFRange[0]
+                    if tempNumber > tempFRange[1]:
+                        print(
+                            f"Temperature above above limit of {tempFRange[1]}. Using {
+                                tempFRange[1]} as desired temperature"
+                        )
+                        tempNumber = tempCRange[1]
+                commands = setTemp(tempUnit, tempNumber)
                 break
             if inputNumber == 3:
                 temp = getCurrentTemp(openapi, BASE_URL)
