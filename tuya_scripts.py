@@ -82,6 +82,8 @@ def getFullStatus(openapi, BASE_URL):
     return openapi.get(f"{BASE_URL}/status")
 
 
+def getStatus(status, statusItem):
+    for item in status.get("result", []):
         if item.get("code") == statusItem:
             statusValue = item.get("value")
     return statusValue
