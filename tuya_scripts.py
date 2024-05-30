@@ -207,16 +207,25 @@ def main():
                 commands = setTemp(tempUnit, tempNumber)
                 break
             if inputNumber == 3:
-                temp = getCurrentTemp(openapi, BASE_URL)
-                print(f"Room temperature: {temp}")
+                fullStatus = getFullStatus(openapi, BASE_URL)
+                tempUnit = getStatus(fullStatus, "funcTag")
+                if tempUnit == 1:
+                    temp = getStatus(fullStatus, "temp_current")
+                    tempTag = "C"
+                else:
+                    temp = getStatus(fullStatus, "temp_current_f")
+                    tempTag = "F"
+                print(f"Room temperature: {temp}º{tempTag}")
                 break
             if inputNumber == 4:
-                curTemp = getStatus(openapi, BASE_URL, "funcTag")
-                if curTemp == 1:
-                    curTemp = "Celsius"
+                fullStatus = getFullStatus(openapi, BASE_URL)
+                tempUnit = getStatus(fullStatus, "funcTag")
+                if tempUnit == 1:
+                    tempUnit = "Celsius"
                 else:
-                    curTemp = "Fahrenheit"
-                print(f"Temperature Unit: {curTemp}")
+                    tempUnit = "Fahrenheit"
+                print(f"Temperature Unit: {tempUnit}")
+                break
             if inputNumber == 5:
                 print("1 - Celsius")
                 print("2 - Fahrenheit")
