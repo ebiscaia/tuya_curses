@@ -294,7 +294,7 @@ def main():
                 break
             print("\n")
 
-        if inputNumber in range(3) or inputNumber in range(5, 7):
+        if inputNumber in range(3) or inputNumber in range(5, 9):
             applyCommand(openapi, BASE_URL, commands)
 
 
