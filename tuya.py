@@ -36,6 +36,7 @@ def mainWindow(openapi, BASE_URL, stdscr, status):
     # Set variables with user friendly values
     roomTemp = f"{status[7]}ºC" if status[5] == 1 else f"{status[9]}ºF"
     setTemp = f"{status[6]}ºC" if status[5] == 1 else f"{status[8]}ºF"
+    setTempValue = status[6] if status[5] == 1 else status[8]
     tempUnit = "Celsius" if status[5] == 1 else "F/heit"
 
     # Rearrange status list to match the titles
