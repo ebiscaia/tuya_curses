@@ -113,6 +113,10 @@ def mainWindow(openapi, BASE_URL, stdscr, status):
         if key == chr(10):
             if activeLine == 0:
                 tuya_windows.switchOnOffWindow(openapi, BASE_URL, BLACK_AND_RED)
+            elif activeLine == 1:
+                tuya_windows.selectTempWindow(
+                    openapi, BASE_URL, BLACK_AND_RED, setTempValue, status[5]
+                )
             elif activeLine == 2:
                 tuya_windows.selectTempUnitWindow(openapi, BASE_URL, BLACK_AND_RED)
             elif activeLine == 3:
