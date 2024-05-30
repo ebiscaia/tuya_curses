@@ -242,6 +242,19 @@ def main():
                     commands = setTempUnit(openapi, BASE_URL, tempUnitOption)
 
                 break
+            if inputNumber == 6:
+                print("1 - High")
+                print("2 - Low")
+                fanSelectionNumber = int(
+                    input("\nSelect option to set the temperature unit: ")
+                )
+                if fanSelectionNumber not in range(1, 3):
+                    print("Please choose one of the option below")
+                    continue
+
+                fanSelection = "high" if fanSelectionNumber == 1 else "low"
+                commands = setFanSpeed(openapi, BASE_URL, fanSelection)
+                break
             if inputNumber == 7:
                 titles = ["On", "Off"]
                 for index, text in enumerate(titles):
