@@ -167,43 +167,31 @@ def main():
                 tempCRange = [16, 31]
                 tempFRange = [61, 88]
                 if tempUnit == 1:
-                    tempNumber = int(
-                        input(
-                            f"Select the air conditioning temperature in Celsius ({
-                                tempCRange[0]}-{tempCRange[1]}): "
-                        )
-                    )
-                    if tempNumber < tempCRange[0]:
-                        print(
-                            f"Temperature below minimal limit of {tempCRange[0]}. Using {
-                                tempCRange[0]} as desired temperature"
-                        )
-                        tempNumber = tempCRange[0]
-                    if tempNumber > tempCRange[1]:
-                        print(
-                            f"Temperature above above limit of {tempCRange[1]}. Using {
-                                tempCRange[1]} as desired temperature"
-                        )
-                        tempNumber = tempCRange[1]
+                    tempRange = tempCRange
+                    tempTitle = "Celsius"
                 else:
-                    tempNumber = int(
-                        input(
-                            f"Select the air conditioning temperature in Fahrenheit ({
-                                tempFRange[0]}-{tempFRange[1]}): "
-                        )
+                    tempRange = tempFRange
+                    tempTitle = "Fahrenheit"
+
+                tempNumber = int(
+                    input(
+                        f"Select the air conditioning temperature in {tempTitle} ({
+                            tempRange[0]}-{tempRange[1]}): "
                     )
-                    if tempNumber < tempFRange[0]:
-                        print(
-                            f"Temperature below minimal limit of {tempFRange[0]}. Using {
-                                tempFRange[0]} as desired temperature"
-                        )
-                        tempNumber = tempFRange[0]
-                    if tempNumber > tempFRange[1]:
-                        print(
-                            f"Temperature above above limit of {tempFRange[1]}. Using {
-                                tempFRange[1]} as desired temperature"
-                        )
-                        tempNumber = tempCRange[1]
+                )
+                if tempNumber < tempRange[0]:
+                    print(
+                        f"Temperature below minimal limit of {tempRange[0]}. Using {
+                            tempRange[0]} as desired temperature"
+                    )
+                    tempNumber = tempRange[0]
+                if tempNumber > tempRange[1]:
+                    print(
+                        f"Temperature above above limit of {tempRange[1]}. Using {
+                            tempRange[1]} as desired temperature"
+                    )
+                    tempNumber = tempRange[1]
+
                 commands = setTemp(tempUnit, tempNumber)
                 break
             if inputNumber == 3:
